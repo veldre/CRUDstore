@@ -26,6 +26,10 @@ if (isset($_POST['submit'])) {
 <div class="jumbotron text-center">
     <h2>Add new product</h2>
 </div>
+<form class="row justify-content-center" action="?page=products&action=index" method="post">
+    <input class="btn btn-primary" type="submit" name="add" value="Back to products">
+</form>
+<br>
 <div class="row justify-content-center">
     <div class="form-group">
         <form action="" method="post">
