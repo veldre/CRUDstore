@@ -31,6 +31,10 @@ if (isset($_POST['update'])) {
 <div class="jumbotron text-center">
     <h2>Update <?php echo $name ?></h2>
 </div>
+<form class="row justify-content-center" action="?page=products&action=index" method="post">
+    <input class="btn btn-primary" type="submit" name="add" value="Back to products">
+</form>
+<br>
 <div class="row justify-content-center">
     <div class="form-group">
         <form action="" method="post">

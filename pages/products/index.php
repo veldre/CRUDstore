@@ -36,7 +36,7 @@ include "includes/messages.php";
                 <th scope="col">Price</th>
                 <th scope="col">Amount</th>
                 <th scope="col">Created at</th>
-                <th colspan="2">Action</th>
+                <th scope="col" colspan="2">Action</th>
             </tr>
             </thead>
             <tbody>

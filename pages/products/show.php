@@ -16,6 +16,11 @@ $neededProduct = new Product($name, $price, $amount, $created, $id);
 <div class="jumbotron text-center">
     <h2><?php echo $name ?></h2>
 </div>
+
+<form class="row justify-content-center" action="?page=products&action=index" method="post">
+    <input class="btn btn-primary" type="submit" name="add" value="Back to products">
+</form>
+<br>
 <div class="container">
     <div class="row justify-content-center">
         <table class="table table-hover">
