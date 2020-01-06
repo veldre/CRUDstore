@@ -2,7 +2,7 @@
 session_start();
 
 $products = [];
-foreach ($connect->query('select * from products')->fetch_all() as $productInfo) {
+foreach ($connect->query("SELECT * FROM products")->fetch_all() as $productInfo) {
     $products[(int)$productInfo[0]] = new Product(
         $productInfo[1],
         $productInfo[2],
