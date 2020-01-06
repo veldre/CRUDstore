@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 $id = $_GET['id'];
 $name = $_GET['name'];
@@ -21,8 +20,6 @@ if (isset($_POST['update'])) {
 
             $connect->query("UPDATE products SET name='$name',price='$price',amount='$amount',created='$created' WHERE id=$id");
 
-            $_SESSION['message'] = "Product \"$name\" has been updated!";
-            $_SESSION['msg_type'] = "warning";
             header("location: /");
         }
     }

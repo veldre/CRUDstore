@@ -1,5 +1,7 @@
 <?php
 
+use App\Classes\Product;
+
 $id = $_GET['id'] ?? 0;
 $product = $connect->query("SELECT * FROM products WHERE id=$id")->fetch_assoc();
 
@@ -52,6 +54,3 @@ $neededProduct = new Product($name, $price, $amount, $created, $id);
     </div>
 </div>
 
-<?php
-
-?>

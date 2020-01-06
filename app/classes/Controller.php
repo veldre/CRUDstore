@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Classes;
+
 class Controller
 {
     public function getRoute(string $page, string $action): string

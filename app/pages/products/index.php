@@ -1,5 +1,6 @@
 <?php
-session_start();
+
+use App\Classes\Product;
 
 $products = [];
 foreach ($connect->query("SELECT * FROM products")->fetch_all() as $productInfo) {
@@ -16,10 +17,6 @@ foreach ($connect->query("SELECT * FROM products")->fetch_all() as $productInfo)
 <div class="jumbotron text-center">
     <h1>Products</h1>
 </div>
-
-<?php
-include "includes/messages.php";
-?>
 <form class="row justify-content-center" action="?page=products&action=create" method="post">
     <input class="btn btn-primary" type="submit" name="add" value="Add new product">
 </form>
@@ -51,7 +48,7 @@ include "includes/messages.php";
                         <a href="?page=products&action=update&id=<?php echo $product->id() ?>&name=<?php
                         echo $product->name() ?>&price=<?php echo $product->price(); ?>&amount=<?php echo $product->amount(); ?>"
                            class="btn btn-info">Edit</a>
-                        <a href="?page=products&action=delete&id=<?php echo $product->id() ?>&name=<?php echo $product->name(); ?>"
+                        <a href="?page=products&action=delete&id=<?php echo $product->id(); ?>"
                            class="btn btn-danger">Delete</a>
                     </td>
                 </tr>

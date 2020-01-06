@@ -1,0 +1,12 @@
+{
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    },
+    "files": [
+      "app/includes/bootstrap.php",
+      "app/includes/functions.php"
+    ]
+  }
+
+}
