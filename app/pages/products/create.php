@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 
 if (isset($_POST['submit'])) {
     if (check_fields()) {
@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
             $amount = (int)$_POST['amount'];
             $created = date('Y-m-d H:i:s');
 
-            $connect->query("INSERT INTO products (name, price, amount, created) VALUES ('$name', '$price', '$amount', '$created')");
+            $database->query("INSERT INTO products (name, price, amount, created) VALUES ('$name', '$price', '$amount', '$created')");
             $_SESSION['message'] = "Product \"$name\" has been added!";
             $_SESSION['msg_type'] = "success";
             header("location: /");

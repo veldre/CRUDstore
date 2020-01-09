@@ -3,7 +3,10 @@
 use App\Classes\Product;
 
 $products = [];
-foreach ($connect->query("SELECT * FROM products")->fetch_all() as $productInfo) {
+$data = $database->query("SELECT * FROM products")->fetchAll();
+
+foreach ($data as $productInfo) {
+
     $products[(int)$productInfo[0]] = new Product(
         $productInfo[1],
         $productInfo[2],
@@ -12,6 +15,7 @@ foreach ($connect->query("SELECT * FROM products")->fetch_all() as $productInfo)
         (int)$productInfo[0]
     );
 }
+//var_dump($products[156]->id());
 ?>
 
 <div class="jumbotron text-center">

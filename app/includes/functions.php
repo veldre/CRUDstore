@@ -13,3 +13,4 @@ function validate_fields()
         return true;
     }
 }
+

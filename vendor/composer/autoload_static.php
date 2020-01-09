@@ -7,11 +7,24 @@ namespace Composer\Autoload;
 class ComposerStaticInitb8e0111ad8a95e922b519703744c7f9c
 {
     public static $files = array (
+        '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '1d0bf16171c31a6859bba8d88170796c' => __DIR__ . '/../..' . '/app/includes/bootstrap.php',
         'ff31b4a578c39945279993c476419777' => __DIR__ . '/../..' . '/app/includes/functions.php',
     );
 
     public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'Plasticbrain\\FlashMessages\\' => 27,
+        ),
+        'M' => 
+        array (
+            'Medoo\\' => 6,
+        ),
+        'F' => 
+        array (
+            'FastRoute\\' => 10,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -19,15 +32,22 @@ class ComposerStaticInitb8e0111ad8a95e922b519703744c7f9c
     );
 
     public static $prefixDirsPsr4 = array (
+        'Plasticbrain\\FlashMessages\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/plasticbrain/php-flash-messages/src',
+        ),
+        'Medoo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/catfan/medoo/src',
+        ),
+        'FastRoute\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/nikic/fast-route/src',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),
-    );
-
-    public static $classMap = array (
-        'App\\Classes\\Controller' => __DIR__ . '/../..' . '/app/classes/Controller.php',
-        'App\\Classes\\Product' => __DIR__ . '/../..' . '/app/classes/Product.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
@@ -35,7 +55,6 @@ class ComposerStaticInitb8e0111ad8a95e922b519703744c7f9c
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitb8e0111ad8a95e922b519703744c7f9c::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitb8e0111ad8a95e922b519703744c7f9c::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInitb8e0111ad8a95e922b519703744c7f9c::$classMap;
 
         }, null, ClassLoader::class);
     }

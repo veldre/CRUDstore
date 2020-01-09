@@ -18,7 +18,7 @@ if (isset($_POST['update'])) {
             $amount = (int)$_POST['amount'];
             $created = date('Y-m-d H:i:s');
 
-            $connect->query("UPDATE products SET name='$name',price='$price',amount='$amount',created='$created' WHERE id=$id");
+            $database->query("UPDATE products SET name='$name',price='$price',amount='$amount',created='$created' WHERE id=$id");
 
             header("location: /");
         }

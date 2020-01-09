@@ -3,13 +3,15 @@
 use App\Classes\Product;
 
 $id = $_GET['id'] ?? 0;
-$product = $connect->query("SELECT * FROM products WHERE id=$id")->fetch_assoc();
 
-$id = $product['id'];
-$name = $product["name"];
-$price = $product["price"];
-$amount = $product["amount"];
-$created = $product['created'];
+$product = $database->select('products', ['id', 'name', 'price', 'amount', 'created'], ['id' => $id]);
+foreach ($product as $productInfo) {
+    $id = $productInfo['id'];
+    $name = $productInfo["name"];
+    $price = $productInfo["price"];
+    $amount = $productInfo["amount"];
+    $created = $productInfo['created'];
+}
 
 $neededProduct = new Product($name, $price, $amount, $created, $id);
 
