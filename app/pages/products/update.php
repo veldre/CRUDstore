@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 $id = $_GET['id'];
 $name = $_GET['name'];
@@ -18,6 +19,9 @@ if (isset($_POST['update'])) {
             $amount = (int)$_POST['amount'];
             $created = date('Y-m-d H:i:s');
             $database->update('products', ['name' => $name, 'price' => $price, 'amount' => $amount, 'created' => $created], ['id' => $id]);
+
+            $_SESSION['message'] = "Product \"$name\" has been updated!";
+            $_SESSION['msg_type'] = "warning";
             header("location: /");
         }
     }

@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 if (isset($_POST['submit'])) {
     if (check_fields()) {
         header('location: /');
@@ -14,7 +14,9 @@ if (isset($_POST['submit'])) {
             $created = date('Y-m-d H:i:s');
 
             $database->insert('products', ['name' => $name, 'price' => $price, 'amount' => $amount, 'created' => $created]);
-
+//            $msg->info('Product \"$name\" has been added!','http://localhost:8000/?page=products&action=index');
+            $_SESSION['message'] = "Product \"$name\" has been added!";
+            $_SESSION['msg_type'] = "success";
             header("location: /");
 
 
