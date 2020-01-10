@@ -15,7 +15,7 @@ foreach ($data as $productInfo) {
         (int)$productInfo[0]
     );
 }
-//var_dump($products[156]->id());
+
 ?>
 
 <div class="jumbotron text-center">

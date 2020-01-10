@@ -1,10 +1,8 @@
 <?php
 require __DIR__ . '/vendor/autoload.php';
 
-
 $page = $_GET['page'] ?? 'products';
 $action = $_GET['action'] ?? 'index';
-
 
 use App\Classes\Controller;
 use Medoo\Medoo;

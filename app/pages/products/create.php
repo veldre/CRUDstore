@@ -1,12 +1,11 @@
 <?php
 
-
 if (isset($_POST['submit'])) {
     if (check_fields()) {
-        header("location: /");
+        header('location: /');
     } else {
         if (validate_fields()) {
-            header("location: /");
+            header('location: /');
         } else {
 
             $name = trim($_POST['name']);
@@ -14,9 +13,7 @@ if (isset($_POST['submit'])) {
             $amount = (int)$_POST['amount'];
             $created = date('Y-m-d H:i:s');
 
-            $database->query("INSERT INTO products (name, price, amount, created) VALUES ('$name', '$price', '$amount', '$created')");
-            $_SESSION['message'] = "Product \"$name\" has been added!";
-            $_SESSION['msg_type'] = "success";
+            $database->insert('products', ['name' => $name, 'price' => $price, 'amount' => $amount, 'created' => $created]);
             header("location: /");
         }
     }
@@ -24,7 +21,7 @@ if (isset($_POST['submit'])) {
 ?>
 
 <div class="jumbotron text-center">
-    <h2>Add new product</h2>
+    <h1>Add new product</h1>
 </div>
 <form class="row justify-content-center" action="?page=products&action=index" method="post">
     <input class="btn btn-primary" type="submit" name="add" value="Back to products">
@@ -51,7 +48,6 @@ if (isset($_POST['submit'])) {
             <div class="row justify-content-center">
                 <input class="btn btn-primary" id="button" type='submit' name='submit' value='Submit'>
             </div>
-
         </form>
     </div
 </div>

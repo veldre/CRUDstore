@@ -5,11 +5,12 @@ use App\Classes\Product;
 $id = $_GET['id'] ?? 0;
 
 $product = $database->select('products', ['id', 'name', 'price', 'amount', 'created'], ['id' => $id]);
+
 foreach ($product as $productInfo) {
     $id = $productInfo['id'];
-    $name = $productInfo["name"];
-    $price = $productInfo["price"];
-    $amount = $productInfo["amount"];
+    $name = $productInfo['name'];
+    $price = $productInfo['price'];
+    $amount = $productInfo['amount'];
     $created = $productInfo['created'];
 }
 
@@ -18,7 +19,7 @@ $neededProduct = new Product($name, $price, $amount, $created, $id);
 ?>
 
 <div class="jumbotron text-center">
-    <h2><?php echo $name ?></h2>
+    <h1><?php echo $name ?></h1>
 </div>
 
 <form class="row justify-content-center" action="?page=products&action=index" method="post">

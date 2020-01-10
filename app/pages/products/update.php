@@ -7,26 +7,24 @@ $amount = $_GET['amount'];
 
 if (isset($_POST['update'])) {
     if (check_fields()) {
-        header("location: ../index.php");
+        header('location: ../index.php');
     } else {
         if (validate_fields()) {
-            header("location: ../index.php");
+            header('location: ../index.php');
         } else {
             $id = $_POST['id'];
             $name = trim($_POST['name']);
             $price = (int)$_POST['price'];
             $amount = (int)$_POST['amount'];
             $created = date('Y-m-d H:i:s');
-
-            $database->query("UPDATE products SET name='$name',price='$price',amount='$amount',created='$created' WHERE id=$id");
-
+            $database->update('products', ['name' => $name, 'price' => $price, 'amount' => $amount, 'created' => $created], ['id' => $id]);
             header("location: /");
         }
     }
 }
 ?>
 <div class="jumbotron text-center">
-    <h2>Update <?php echo $name ?></h2>
+    <h1>Update <?php echo $name ?></h1>
 </div>
 <form class="row justify-content-center" action="?page=products&action=index" method="post">
     <input class="btn btn-primary" type="submit" name="add" value="Back to products">
