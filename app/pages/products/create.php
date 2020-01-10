@@ -14,7 +14,10 @@ if (isset($_POST['submit'])) {
             $created = date('Y-m-d H:i:s');
 
             $database->insert('products', ['name' => $name, 'price' => $price, 'amount' => $amount, 'created' => $created]);
+
             header("location: /");
+
+
         }
     }
 }

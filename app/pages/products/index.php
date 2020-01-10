@@ -21,6 +21,8 @@ foreach ($data as $productInfo) {
 <div class="jumbotron text-center">
     <h1>Products</h1>
 </div>
+
+
 <form class="row justify-content-center" action="?page=products&action=create" method="post">
     <input class="btn btn-primary" type="submit" name="add" value="Add new product">
 </form>
@@ -32,7 +34,7 @@ foreach ($data as $productInfo) {
             <thead>
 
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">ID</th>
                 <th scope="col">Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">Amount</th>
