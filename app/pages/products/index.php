@@ -1,4 +1,5 @@
 <?php
+session_start();
 
 use App\Classes\Product;
 
@@ -22,6 +23,15 @@ foreach ($data as $productInfo) {
     <h1>Products</h1>
 </div>
 
+<?php
+if (isset($_SESSION['message'])): ?>
+    <div class="alert alert-<?= $_SESSION['msg_type'] ?>">
+        <?php
+        echo $_SESSION['message'];
+        unset($_SESSION['message']);
+        ?>
+    </div>
+<?php endif ?>
 
 <form class="row justify-content-center" action="?page=products&action=create" method="post">
     <input class="btn btn-primary" type="submit" name="add" value="Add new product">
@@ -30,9 +40,7 @@ foreach ($data as $productInfo) {
 <div class="container">
     <div class="row justify-content-center">
         <table class="table table-hover">
-
             <thead>
-
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Name</th>
@@ -54,7 +62,8 @@ foreach ($data as $productInfo) {
                         <a href="?page=products&action=update&id=<?php echo $product->id() ?>&name=<?php
                         echo $product->name() ?>&price=<?php echo $product->price(); ?>&amount=<?php echo $product->amount(); ?>"
                            class="btn btn-info">Edit</a>
-                        <a href="?page=products&action=delete&id=<?php echo $product->id(); ?>"
+                        <a href="?page=products&action=delete&id=<?php echo $product->id() ?>&name=<?php
+                        echo $product->name(); ?>"
                            class="btn btn-danger">Delete</a>
                     </td>
                 </tr>

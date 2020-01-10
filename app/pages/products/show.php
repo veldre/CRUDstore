@@ -1,8 +1,7 @@
 <?php
 
 use App\Classes\Product;
-//$msg->info('Product \"$name\" has been added!');
-//$msg->display();
+
 $id = $_GET['id'] ?? 0;
 
 $product = $database->select('products', ['id', 'name', 'price', 'amount', 'created'], ['id' => $id]);
